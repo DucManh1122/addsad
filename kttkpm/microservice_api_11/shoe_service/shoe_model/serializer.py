@@ -26,3 +26,7 @@ class ShoeSerializer(serializers.ModelSerializer):
         shoe.save()
         return shoe
     
+class ShoeSerializer1(serializers.ModelSerializer):
+    class Meta:
+        model = Shoe
+        fields='__all__'

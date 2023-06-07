@@ -25,4 +25,8 @@ class ElectronicSerializer(serializers.ModelSerializer):
         )
         electronic.save()
         return electronic
-    
+
+class ElectronicSerializer1(serializers.ModelSerializer):
+    class Meta:
+        model = Electronic
+        fields='__all__'

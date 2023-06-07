@@ -3,14 +3,14 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Shoe
-from .serializer import ShoeSerializer
+from .serializer import ShoeSerializer,ShoeSerializer1
 
 # Create your views here.
 @api_view(['GET'])
 def shoe_list(request):
     shoes = Shoe.objects.all()
     if shoes:
-        serializer = ShoeSerializer(shoes,many=True)
+        serializer = ShoeSerializer1(shoes,many=True)
         return Response({"status": "success","data": serializer.data}, status=status.HTTP_200_OK)
     return Response({"status":"failed","message":"Danh mục sẽ được cập nhật sớm nhất có thể"})
 

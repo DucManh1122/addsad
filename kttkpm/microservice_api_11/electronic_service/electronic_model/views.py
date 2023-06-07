@@ -3,14 +3,14 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Electronic
-from .serializer import ElectronicSerializer
+from .serializer import ElectronicSerializer,ElectronicSerializer1
 
 # Create your views here.
 @api_view(['GET'])
 def electronic_list(request):
     electronics = Electronic.objects.all()
     if electronics:
-        serializer = ElectronicSerializer(electronics,many=True)
+        serializer = ElectronicSerializer1(electronics,many=True)
         return Response({"status": "success","data": serializer.data}, status=status.HTTP_200_OK)
     return Response({"status":"failed","message":"Danh mục sẽ được cập nhật sớm nhất có thể"})
 @api_view(['GET'])

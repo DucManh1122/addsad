@@ -26,3 +26,8 @@ class ClotheSerializer(serializers.ModelSerializer):
         clothe.save()
         return clothe
     
+class ClotheSerializer1(serializers.ModelSerializer):
+    class Meta:
+        model = Clothe
+        fields='__all__'
+    
