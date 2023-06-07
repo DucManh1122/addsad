@@ -3,14 +3,14 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Book
-from .serializer import BookSerializer
+from .serializer import BookSerializer,BookSerializer1
 
 # Create your views here.
 @api_view(['GET'])
 def book_list(request):
     books = Book.objects.all()
     if books:
-        serializer = BookSerializer(books,many=True)
+        serializer = BookSerializer1(books,many=True)
         return Response({"status": "success","data": serializer.data}, status=status.HTTP_200_OK)
     return Response({"status":"failed","message":"Sách sẽ được cập nhật sớm nhất có thể"})
 

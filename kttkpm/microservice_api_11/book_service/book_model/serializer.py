@@ -26,3 +26,7 @@ class BookSerializer(serializers.ModelSerializer):
         book.save()
         return book
     
+class BookSerializer1(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields='__all__'
